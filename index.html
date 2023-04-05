@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paz First Website.</title>
+    <center>
+    </center>
+</head>
+<script src="page.js"></script>
+
+<body>
+    
+    <center>
+        <h1 style="color: burlywood;">Paz First Website.</h1>
+    </center>
+    <center>
+        <p style="background-color: rgb(0, 243, 9);">Choose a background color:</p>
+    </center>
+    <center><input type="color" id="color-picker"></center>
+    <center><button onclick="saveColor()" style="color: rgb(242, 2, 255);">Save</button></center>
+    <center><button onclick="loadColor()" style="color: rgb(0, 34, 255);">Load</button></center>
+    <h1><center><a href="storecolor2.html">Second website with the color</a></center></h1>
+
+    <script>
+        function saveColor() {
+            var colorPicker = document.getElementById("color-picker");
+            var color = colorPicker.value;
+            localStorage.setItem("backgroundColor", color);
+        }
+
+        function loadColor() {
+            let colorDisplay = document.getElementById("color-display");
+            let color = localStorage.getItem("backgroundColor");
+            if (color) {
+                document.body.style.backgroundColor = color;
+                colorDisplay.textContent = color;
+            } else {
+                colorDisplay.textContent = "No color chosen";
+            }
+        }
+
+        loadColor();
+    </script>
+
+</body>
+
+</html>

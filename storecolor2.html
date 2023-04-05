@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <center>
+        <title>Page 1</title>
+    </center>
+    <script src="page.js"></script>
+
+</head>
+
+<body>
+    <center><button onclick="loadColor()">Load</button></center>
+
+    <center><button onclick="saveColor()">Save</button></center>
+
+    <center>
+    <h1>Paz Second Website</h1>
+    </center>
+    <center>
+        <h1><center><p style="color:hotpink;">The color you chose was:</p></center></h1>
+    </center>
+    <div id="color-display"></div>
+   <h1><center><a href="storecolor.html">First website with color By Paz.</a></center></h1>
+    <script src="page.js"></script>
+
+</body>
+
+
+</html>
+
+
+<script>
+
+    // אתר של שני דפים דף ראשון לתת למשתמש לבחור צבע ואז שהוא עובר לדף השני נשאר אותו צבע
+    function saveColor() {
+        let colorPicker = document.getElementById("color-picker");
+        let color = colorPicker.value;
+        localStorage.setItem("backgroundColor", color);
+        
+    }
+    saveColor();
+
+    function loadColor() {
+        let colorDisplay = document.getElementById("color-display");
+        let color = localStorage.getItem("backgroundColor");
+        if (color) {
+            document.body.style.backgroundColor = color;
+            colorDisplay.textContent = color;
+        } else {
+            colorDisplay.textContent = "No color chosen";
+        }
+    }
+
+    loadColor();
+
+</script>
+</body>
+
+</html>
